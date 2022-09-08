@@ -1,0 +1,16 @@
+.outlet {
+  padding: 0.2em 1em;
+  font-size: 0.9em;
+  max-width: 480px;
+  width: 100%;
+}
+.news-card__container {
+  border: 1px solid black;
+  margin-top: 1em;
+  overflow-y: scroll;
+  height: 29vh;
+}
+.container{
+  max-width: 480px;
+  width: 100%;
+}

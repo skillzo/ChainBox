@@ -1,0 +1,15 @@
+.news-navbar__container {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2em;
+  padding: 0 2em;
+}
+.news-navbar__share {
+  display: flex;
+  align-items: center;
+}
+.news-navbar__share p {
+  margin: 0 0.5em;
+}
