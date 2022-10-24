@@ -13,7 +13,6 @@ function News() {
       <div className="error-page">{error && <ErrorPage />}</div>
       <NewsHeader icon={newData[Math.round(Math.random() * 50)]?.image} />
       <div className="skeleton-loading">{loading && <SCoinCard />}</div>
-      <NewsCard />
       <div className="news-card__container">
         {newData &&
           newData.map((news) => {
