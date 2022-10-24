@@ -1,0 +1,9 @@
+.filter2 {
+  display: flex;
+  justify-content: space-between;
+  color: #59657c;
+  padding: 0 1em;
+  margin-top: 1em;
+  border-bottom: 1px solid #a2adb8;
+  padding-bottom: 0.7em;
+}

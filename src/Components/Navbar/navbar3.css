@@ -1,0 +1,11 @@
+.navbar3 {
+  height: 7vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.favorite {
+  display: flex;
+  align-items: center;
+  width: 15%;
+}

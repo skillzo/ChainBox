@@ -1,30 +1,41 @@
 .profile-container {
-  border: 1px solid black;
+  border-bottom: 1px solid #a2adb8;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 1em;
 }
 .profile-name {
-  border: 1px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 600;
+  font-size: 0.9em;
+  color: white;
 }
 .profile-name img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background-color: black;
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   margin-right: 0.5em;
 }
 .profile-logo {
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.2em;
+  margin-left: -2.5em;
+  color: white;
 }
 .profile-logo span {
-  color: #1414ad;
+  font-family: cursive;
+  font-weight: 900;
+  background: rgb(251, 251, 251);
+  background: linear-gradient(
+    150deg,
+    rgba(251, 251, 251, 1) 44%,
+    rgb(53, 185, 57) 50%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

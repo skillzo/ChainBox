@@ -1,0 +1,46 @@
+/* .settingscard-header {
+  border: 1px solid black;
+  height: 7vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+} */
+/* .settingscard-header h3 {
+  text-align: center;
+  margin-right: 40%;
+} */
+.settingscard-container {
+  padding: 0 1em;
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.settingscard {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em;
+}
+.settingscard-appearance__container {
+  display: flex;
+  background-color: #eef1f4;
+  padding: 0.5em;
+  font-size: 0.9em;
+  border-radius: 5px;
+}
+.settingscard-appearance {
+  background-color: white;
+  margin: 0 0.5em;
+  padding: 0.5em 0.9em;
+  border-radius: 5px;
+  font-weight: 550;
+}
+.settingscard-appearance:hover,
+.settingscard-appearance:active {
+  color: white;
+  background-color: #487bfb;
+}

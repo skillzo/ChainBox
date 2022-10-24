@@ -1,22 +1,39 @@
-import React from 'react'
+import React from "react";
+import "./coinheader.css";
+import ChangeCircleIcon from "@mui/icons-material/ChangeCircle";
 
-function CoinHeader() {
+function CoinHeader({ coinName, price, changePercent, changeCur }) {
   return (
     <>
-        <div className="coinheader-navbar">
-            back
-            <div>
-                search
-                fav
+      <div className="coinheader-container">
+        <div className="coinheader-main">
+          <div className="coinheader-name">{coinName}</div>
+          <div className="coinheader-price">
+            <h2>US ${price}</h2>
+          </div>
+          <div className="CoinHeader_change">
+            <div className="CoinHeader_change__icon">
+              <ChangeCircleIcon />
             </div>
+            {changeCur < 0 ? (
+              <div className="CoinHeader_change__changenumber textred">
+                {" "}
+                ${Math.round((changeCur + Number.EPSILON) * 100) / 100}
+              </div>
+            ) : (
+              <div className="CoinHeader_change__changenumber textgreen">
+                {" "}
+                ${Math.round((changeCur + Number.EPSILON) * 100) / 100}
+              </div>
+            )}
+          </div>
         </div>
-        <div className="coinheader-name">
-            <p>Tether</p>
-            <h1>US $1.000</h1>
-             <p>Change 24hr</p>
+        <div className="coinheader-change red">
+          {Math.round((changePercent + Number.EPSILON) * 100) / 100}%
         </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default CoinHeader
+export default CoinHeader;

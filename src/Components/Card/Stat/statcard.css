@@ -1,0 +1,13 @@
+.stat-container {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  margin-top: 0.5em;
+}
+.stat2 {
+  margin-right: 2em;
+}
+.stat-info p {
+  margin-top: -1.5em;
+  font-size: 0.8em;
+}

@@ -1,20 +1,33 @@
 import React from "react";
+import useFetch2 from "../../Store/Apifolder/UseFetch2";
+import { ImageSkeleton } from "../Card/Skeletons/SkeletonCard";
 import "./newsheader.css";
 
-function NewsHeader() {
+function NewsHeader({ icon }) {
+  const { loading } = useFetch2();
+  const time = new Date().getHours();
+  console.log(time);
   return (
     <>
       <div className="news-header__container">
         <div className="news-greeting">
-          <h1>Good Morning</h1>
+          {time < 11 ? (
+            <h1>Good Morning</h1>
+          ) : time >= 11 && time <= 16 ? (
+            <h1>Good Afternoon</h1>
+          ) : time >= 16 && time <= 23 ? (
+            <h1>Good Evening</h1>
+          ) : (
+            <h1>Good Morning</h1>
+          )}
           <p> Skillzo</p>
         </div>
         <div className="greetings-text">
-          <p>Explore The World With a Single Click </p>
+          <p>Explore The World With A Single Click </p>
         </div>
 
         <div className="header-news__image">
-          <img src="https://wallpapercave.com/wp/wp2128385.jpg" alt="" />
+          {loading ? <ImageSkeleton /> : <img src={icon} alt="" />}
         </div>
 
         <div>

@@ -1,11 +1,12 @@
-import React, { Children } from 'react'
+import React from "react";
+import styles from "./wrapper.module.css";
 
-function Wrapper() {
+function Wrapper({ children }) {
   return (
-    <div className="wrapper">
-        {Children}
-    </div>
-  )
+    <>
+      <div className={styles["wrapper-container"]}>{children}</div>
+    </>
+  );
 }
 
-export default Wrapper
+export default Wrapper;

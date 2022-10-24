@@ -1,21 +1,25 @@
-import React, { Fragment } from "react";
-import Profile from "../Profile/Profile";
-import Footer from "../Footer/Footer";
-import MainHome from "./MainHome";
-import News from "./News";
+import React from "react";
+import Profile from "../Components/Profile/Profile";
+import Footer from "../Components/Footer/Footer";
 import "./navigation.css";
+import Navbar from "../Components/Navbar/Navbar";
+import { Outlet } from "react-router-dom";
+import Wrapper from "../Components/Wrapper/Wrapper";
 
 function Home() {
   return (
-    <>
-      <div className="container">
+    <div className="container">
+      <div className="navigation-header">
         <Profile />
-        <div className="outlet">
-          <News />
-        </div>
-        <Footer />
+        <Navbar />
       </div>
-    </>
+      <div className="navigation-body">
+        <Wrapper>
+          <Outlet />
+        </Wrapper>
+      </div>
+      <Footer />
+    </div>
   );
 }
 

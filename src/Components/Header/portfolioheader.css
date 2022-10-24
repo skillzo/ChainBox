@@ -1,0 +1,30 @@
+.portfolio-header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2em 1em;
+  margin-top: 2em;
+}
+
+.portfolio-header__amount {
+  line-height: 1em;
+}
+.portfolio-header__amount p {
+  font-weight: 650;
+  color: rgba(0, 0, 0, 0.55);
+  margin-bottom: -0.5em;
+}
+
+.portfolio-header__amountChange {
+  color: #14c784;
+  font-weight: 700;
+  margin-top: -0.3em;
+  font-size: 0.9em;
+}
+.portfolio-header__change {
+  font-weight: 650;
+  font-size: 1.1em;
+  width: 20%;
+  padding: 0.5em;
+  border-radius: 7px;
+}

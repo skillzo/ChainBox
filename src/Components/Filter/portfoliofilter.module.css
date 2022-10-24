@@ -1,0 +1,7 @@
+.portfoliofilter-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2em 1em;
+  font-weight: 500;
+  color: #59657c;
+}

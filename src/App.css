@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap");
+.green {
+  background-color: #e8f9f3;
+  color: #14c784;
+  border-radius: 5px;
+  padding: 0.1em 0.7em;
+}
+.textgreen {
+  color: #14c784;
+}
+.textred {
+  color: #ff163a;
+}
+.red {
+  background-color: #fceaec;
+  color: #ff163a;
+  border-radius: 5px;
+  padding: 0.1em 0.4em;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  background-color: none;
+  -webkit-tap-highlight-color: transparent;
+}

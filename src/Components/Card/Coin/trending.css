@@ -1,0 +1,31 @@
+.singlecoins {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  width: 45%;
+  margin: 0.4em 0.5em;
+  padding: 0.2em 0.1em;
+  border-radius: 15px;
+  border-bottom: 1px solid #f2f5f8;
+}
+.singlecoin-name {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 70%;
+}
+.singlecoins img {
+  height: 30px;
+  width: 25%;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.5em;
+}
+.singlecoin-abb {
+  color: #59657c;
+  font-size: 0.8em;
+  font-weight: 700;
+  margin-right: 1em;
+}

@@ -1,0 +1,68 @@
+.coincard3-container {
+  border: 1px solid #a2adb8;
+  margin-top: 1em;
+  height: 65vh;
+  padding: 1em 0;
+}
+.coincard3-card {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 1em 0.3em;
+  margin: 1em 2%;
+  font-size: 0.9em;
+  font-weight: 600;
+  border-top: 1px solid #f2f5f8;
+  border-bottom: 1px solid #f2f5f8;
+}
+.coincard3-number {
+  width: 5%;
+}
+.coincard3-logo {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: 0.5em;
+  width: 32%;
+}
+.coincard3-logo img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-right: 0.5em;
+}
+
+.coincard3-price {
+  margin-top: 0.4em;
+  width: 15%;
+}
+.coincard3-price,
+.coincard3-change {
+  margin-right: 1.5em;
+}
+.coincard3-change {
+  margin-right: 1.8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.1em 0.5em;
+  font-size: 0.9em;
+  width: 15%;
+}
+.coincard3-holding {
+  margin-right: 0.5em;
+  width: 5%;
+}
+
+.coincard3-name {
+  display: flex;
+  flex-direction: column;
+}
+.coincard3-score {
+  padding: 0.2em 0.8em;
+}
+.market-cap {
+  font-size: 0.91em;
+  color: #59657c;
+  font-weight: 700;
+}

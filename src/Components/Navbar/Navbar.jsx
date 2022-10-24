@@ -1,14 +1,21 @@
 import React from "react";
-import "./navbar.css"
+import styles from "./navbar.module.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div className="navbar">
-      <div className="navlinks">
+    <div className={styles.navbar}>
+      <div className={styles.navlinks}>
         <ul>
-          <li>Coins</li>
-          <li>Watchlist</li>
-          <li>Exchanges</li>
+          <Link to="/">
+            <li>Coins</li>
+          </Link>
+          <Link to="/watchlist">
+            <li>Watchlist</li>
+          </Link>
+          <Link to="/exchange">
+            <li>Exchanges</li>
+          </Link>
         </ul>
       </div>
     </div>

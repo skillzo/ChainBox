@@ -1,0 +1,47 @@
+.coincard2-container {
+  border: 1px solid #f2f5f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5em;
+  font-size: 0.8em;
+  margin: 0.5em;
+}
+.coincard2-container p {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: -1em;
+}
+
+.coincard2-card__coin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coincard2-card__image {
+  height: 40px;
+  width: 40px;
+  background-color: black;
+  border-radius: 50%;
+  margin-right: 0.5em;
+}
+.coincard2-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.coincard2-card__price {
+  margin-top: -1em;
+}
+.coincard2-card__pricechange__textgreen {
+  margin-top: -1em;
+  font-weight: 700;
+  color: #14c784;
+}
+.coincard2-card__pricechange__textred {
+  margin-top: -1em;
+  font-weight: 700;
+  color: #ff163a;
+}
+
