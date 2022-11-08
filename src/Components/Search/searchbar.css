@@ -5,12 +5,11 @@
   align-items: center;
   padding: 1em;
   border-radius: 5px;
-  
 }
 .search-container input {
   border: none;
   background-color: transparent;
   outline: none;
-  width: 90%;
+  width: 95%;
   padding-left: 0.5em;
 }

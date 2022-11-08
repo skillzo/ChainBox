@@ -39,3 +39,6 @@
   flex-wrap: wrap;
   font-size: 0.9em;
 }
+.watchlist-container h3 {
+  margin-left: 0.6em;
+}

@@ -1,9 +1,7 @@
-import React, {
-  createContext,
-  useState,
-  useContext,
-  useReducer,
-} from "react";
+import React, { createContext, useState, useContext, useReducer } from "react";
+import { signInWithPopup, signOut } from "firebase/auth";
+import { auth, provider } from "../../Store/Firebase/Firebase";
+import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext();
 
@@ -47,7 +45,7 @@ const reducer = (initialState, { type, payload }) => {
         ...initialState,
         watchList: [
           ...initialState.portfolio,
-          { ...payload.currItem, id: Math.random() },
+          { ...payload.currItem, id: Math.random(), checked: true },
         ],
       };
     case ACTIONS.DELETE_FROM_PORTFOLIO:
@@ -72,12 +70,53 @@ const reducer = (initialState, { type, payload }) => {
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [input, setInput] = useState("binance");
+  const [checked, setChecked] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
+  const [currentUser, setCurrentUser] = useState("");
+  const [loginError, setLoginError] = useState("");
+  const navigate = useNavigate();
+
+  const logInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result?.user;
+        setCurrentUser(user);
+        localStorage.setItem("isAuth", true);
+        setIsAuth(true);
+        navigate("/");
+      })
+      .catch((e) => {
+        setLoginError(e.message);
+        setCurrentUser("");
+      });
+  };
+  const logOut = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/login");
+        setIsAuth(false);
+        localStorage.removeItem("isAuth");
+      })
+      .catch((e) => {
+        console.log("couldnt sign out");
+        console.log("e.message");
+      });
+  };
 
   const value = {
     state,
     dispatch,
     input,
     setInput,
+    isAuth,
+    setIsAuth,
+    currentUser,
+    setCurrentUser,
+    logInWithGoogle,
+    logOut,
+    loginError,
+    checked,
+    setChecked,
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

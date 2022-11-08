@@ -35,7 +35,7 @@ export default function useFetch2() {
         }
       }
       getdata();
-    }, 200);
+    }, 2000);
     return () => {
       clearTimeout(timeout);
     };

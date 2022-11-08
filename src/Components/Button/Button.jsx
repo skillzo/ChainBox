@@ -29,11 +29,13 @@ export default function Button({
   );
 }
 
-export function IconCheckboxes() {
+export function IconCheckboxes({ checked, watchListHandler }) {
   return (
     <div>
       <Checkbox
         {...label}
+        onChange={watchListHandler}
+        checked={checked}
         icon={<BookmarkBorderIcon />}
         checkedIcon={<BookmarkIcon />}
       />

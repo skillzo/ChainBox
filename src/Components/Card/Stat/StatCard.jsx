@@ -60,7 +60,7 @@ function StatCard({
           </div>
           <div className="stat-info">
             <h4>ROI</h4>
-            <p>{roi} %</p>
+            <p>{roi}%</p>
           </div>
         </div>
       </div>

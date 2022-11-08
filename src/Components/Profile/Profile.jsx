@@ -3,17 +3,22 @@ import "./profile.css";
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
+import { useAuth } from "../../Store/Context/AuthContext";
 
 function Profile() {
+  const { currentUser } = useAuth();
   return (
     <div className="profile-container">
       <Link to="/profile">
         <div className="profile-name">
           <img
-            src="https://img.a.transfermarkt.technology/portrait/big/253677-1593437372.jpg?lm=1"
+            src={
+              currentUser?.photoURL ||
+              "https://img.a.transfermarkt.technology/portrait/big/253677-1593437372.jpg?lm=1"
+            }
             alt=""
           />
-          Skillzo
+          {currentUser?.displayName || "Skillzo"}
         </div>
       </Link>
       <Link to="/">

@@ -25,7 +25,7 @@ export default function useFetch(url, options) {
         }
       }
       getdata();
-    }, 200);
+    }, 0);
     return () => {
       clearTimeout(timeout);
     };
