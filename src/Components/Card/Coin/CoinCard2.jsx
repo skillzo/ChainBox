@@ -1,15 +1,28 @@
 import React from "react";
 import { ACTIONS, useAuth } from "../../../Store/Context/AuthContext";
 import styles from "./coincard2.module.css";
-function CoinCard2({ icon, coinName, symbol, price, change, count, id }) {
+function CoinCard2({
+  icon,
+  coinName,
+  symbol,
+  price,
+  change,
+  count,
+  id,
+  currItem,
+}) {
   const { dispatch } = useAuth();
+  console.log(currItem);
   return (
     <div
       className={styles["coincard2-container"]}
       onClick={() =>
         dispatch({
           type: ACTIONS.DELETE_FROM_PORTFOLIO,
-          payload: { currItem: id },
+          payload: {
+            currItem: id,
+            price: currItem?.market_data?.current_price.usd * 10,
+          },
         })
       }
     >

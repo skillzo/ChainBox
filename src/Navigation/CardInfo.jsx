@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import CoinHeader from "../Components/Header/CoinHeader";
 import ChartCard from "../Components/Card/Charts/ChartCard";
@@ -34,21 +34,25 @@ function CardInfo() {
   const { data: sDataNews } = useFetch(url2, options2);
 
   const { dispatch, state } = useAuth();
-  const [inPortfolio, setInPortfolio] = useState(false);
 
   // ////////////////////////////
   const addToPortfolio = (currItem) => {
-    const coinInPortfolio = state.portfolio.includes(id);
-
-    if (!coinInPortfolio) {
-      setInPortfolio(true);
+    const coinInPortfolio = state.portfolio.map((coin) => {
+      return coin.id;
+    });
+    console.log(coinInPortfolio);
+    if (coinInPortfolio.includes(id)) {
+      console.log("already have coin");
+      return;
+    } else {
       console.log(" adding coin");
       dispatch({
         type: ACTIONS.ADD_TO_PORTFOLIO,
-        payload: { currItem: currItem },
+        payload: {
+          currItem: currItem,
+          price: currItem?.market_data?.current_price.usd * 10,
+        },
       });
-    } else {
-      console.log("already have coin");
     }
   };
   return (
@@ -108,11 +112,7 @@ function CardInfo() {
             })}
         </div>
         <div onClick={() => addToPortfolio(sData)}>
-          <Button
-            bgColor={"black"}
-            btnColor={"#f4f5f6"}
-            display={!inPortfolio ? "show" : "none"}
-          >
+          <Button bgColor={"black"} btnColor={"#f4f5f6"}>
             Add To Portfolio
           </Button>
         </div>

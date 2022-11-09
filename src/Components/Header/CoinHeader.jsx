@@ -18,7 +18,8 @@ function CoinHeader({ coinName, price, changePercent, changeCur }) {
             {changeCur < 0 ? (
               <div className="CoinHeader_change__changenumber textred">
                 {" "}
-                ${Math.round((changeCur + Number.EPSILON) * 100) / 100}
+                $
+                {Math.abs(Math.round((changeCur + Number.EPSILON) * 100) / 100)}
               </div>
             ) : (
               <div className="CoinHeader_change__changenumber textgreen">
@@ -29,7 +30,7 @@ function CoinHeader({ coinName, price, changePercent, changeCur }) {
           </div>
         </div>
         <div className="coinheader-change red">
-          {Math.round((changePercent + Number.EPSILON) * 100) / 100}%
+          {Math.abs(Math.round((changePercent + Number.EPSILON) * 100) / 100)}%
         </div>
       </div>
     </>

@@ -1,12 +1,13 @@
 import React from "react";
 import useFetch2 from "../../Store/Apifolder/UseFetch2";
+import { useAuth } from "../../Store/Context/AuthContext";
 import { ImageSkeleton } from "../Card/Skeletons/SkeletonCard";
 import "./newsheader.css";
 
 function NewsHeader({ icon }) {
+  const { currentUser } = useAuth();
   const { loading } = useFetch2();
   const time = new Date().getHours();
-  console.log(time);
   return (
     <>
       <div className="news-header__container">
@@ -20,7 +21,7 @@ function NewsHeader({ icon }) {
           ) : (
             <h1>Good Morning</h1>
           )}
-          <p> Skillzo</p>
+          <p> {currentUser?.displayName || "Skillzo"}</p>
         </div>
         <div className="greetings-text">
           <p>Explore The World With A Single Click </p>

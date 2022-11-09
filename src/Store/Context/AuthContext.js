@@ -12,7 +12,7 @@ const portFolioLocalStorage = JSON.parse(
   localStorage.getItem("portfolio") || "[]"
 );
 const portFolioAmountLocalStorage = JSON.parse(
-  localStorage.getItem("portfolio") || 0
+  localStorage.getItem("total") || 0
 );
 const initialState = {
   total: portFolioAmountLocalStorage,
@@ -34,11 +34,8 @@ const reducer = (initialState, { type, payload }) => {
     case ACTIONS.ADD_TO_PORTFOLIO:
       return {
         ...initialState,
-        portfolio: [
-          ...initialState.portfolio,
-          { ...payload.currItem, id: Math.random() },
-        ],
-        total: initialState.total + payload.price,
+        portfolio: [...initialState.portfolio, { ...payload.currItem }],
+        total: (initialState.total += payload.price),
       };
     case ACTIONS.ADD_TO_WATCHLIST:
       return {
@@ -54,6 +51,7 @@ const reducer = (initialState, { type, payload }) => {
         portfolio: initialState.portfolio.filter((coin) => {
           return coin.id !== payload.currItem;
         }),
+        total: (initialState.total -= payload.price),
       };
     case ACTIONS.DELETE_FROM_WATCHLIST:
       return {
@@ -71,7 +69,7 @@ export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [input, setInput] = useState("binance");
   const [checked, setChecked] = useState(false);
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
   const [currentUser, setCurrentUser] = useState("");
   const [loginError, setLoginError] = useState("");
   const navigate = useNavigate();
@@ -79,11 +77,11 @@ export const ContextProvider = ({ children }) => {
   const logInWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
+        setIsAuth(true);
+        navigate("/");
         const user = result?.user;
         setCurrentUser(user);
         localStorage.setItem("isAuth", true);
-        setIsAuth(true);
-        navigate("/");
       })
       .catch((e) => {
         setLoginError(e.message);
@@ -93,9 +91,9 @@ export const ContextProvider = ({ children }) => {
   const logOut = () => {
     signOut(auth)
       .then(() => {
-        navigate("/login");
         setIsAuth(false);
-        localStorage.removeItem("isAuth");
+        localStorage.setItem("isAuth", false);
+        navigate("/login");
       })
       .catch((e) => {
         console.log("couldnt sign out");

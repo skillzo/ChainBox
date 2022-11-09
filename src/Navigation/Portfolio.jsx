@@ -7,18 +7,21 @@ import PortfolioFilter from "../Components/Filter/PortfolioFilter";
 import Button from "../Components/Button/Button";
 import { useAuth } from "../Store/Context/AuthContext";
 import { Link } from "react-router-dom";
+import ChartJS from "../Components/Card/Charts/Chartjs/ChartJs";
 
 function Portfolio() {
   const { state } = useAuth();
-
+  console.log(state.total);
   useEffect(() => {
     localStorage.setItem("portfolio", JSON.stringify(state.portfolio));
-  }, [state.portfolio]);
+    localStorage.setItem("total", state.total);
+  }, [state.portfolio, state.total]);
   return (
     <>
       <Navbar2 pageName=" Skillzo's Portfolio" />
       <PortFolioHeader />
       <PortfolioFilter />
+      <ChartJS />
       {state.portfolio?.map((coin) => {
         console.log(coin);
         return (

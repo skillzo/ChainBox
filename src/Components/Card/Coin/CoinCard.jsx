@@ -25,14 +25,14 @@ function CoinCard({ rank, icon, coinName, mkCap, price, symbol, change, id }) {
 
         {change < 0 ? (
           <div className={`${styles["coin-change"]} ${"red"}`}>
-            {change.toFixed(2)}
+            {Math.abs(change.toFixed(2))}
           </div>
         ) : (
           <div className={`${styles["coin-change"]} ${"green"}`}>
             {change.toFixed(2)}
           </div>
         )}
-        <div className={styles["coin-holding"]}>12{symbol.toUpperCase()}</div>
+        <div className={styles["coin-holding"]}>10{symbol.toUpperCase()}</div>
       </div>
     </Link>
   );
