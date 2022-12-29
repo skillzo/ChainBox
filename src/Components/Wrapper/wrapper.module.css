@@ -3,3 +3,9 @@
   max-width: 480px;
   width: 100%;
 }
+
+@media (min-width: 481px) {
+  .wrapper-container {
+    max-width: none;
+  }
+}

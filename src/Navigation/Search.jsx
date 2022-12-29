@@ -6,9 +6,9 @@ import SearchBar from "../Components/Search/SearchBar";
 import Wrapper from "../Components/Wrapper/Wrapper";
 import useFetch2 from "../Store/Apifolder/UseFetch2";
 import useFetch from "../Store/Apifolder/UseFetch";
-// import useFetch3 from "../Store/Apifolder/UseFetch3";
+
 import {
-  SBasicCard,
+  // SBasicCard,
   SCoinCard,
 } from "../Components/Card/Skeletons/SkeletonCard";
 
@@ -65,7 +65,7 @@ function Search() {
       <Wrapper>
         <SearchBar />
         <h3>Trending</h3>
-        {loading && <SBasicCard />}
+        {/* {loading && <SBasicCard />} */}
         <div className="trending-container">
           {data &&
             data?.slice(0, 10).map((coin) => {

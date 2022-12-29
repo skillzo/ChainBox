@@ -4,6 +4,7 @@ export default function useFetch(url, options) {
   const [data, setData] = useState();
   const [error, setError] = useState();
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       async function getdata() {

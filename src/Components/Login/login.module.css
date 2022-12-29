@@ -48,6 +48,25 @@ button:disabled {
   justify-content: center;
 }
 
+.on-desktop {
+  display: none;
+}
+
+@media (min-width: 481px) {
+  .login-container {
+    display: none;
+  }
+  .on-desktop {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    color: #ff9494;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .login-container h3 {
   margin-bottom: -0.5em;
 }

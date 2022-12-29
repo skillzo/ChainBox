@@ -99,6 +99,7 @@ export const ContextProvider = ({ children }) => {
         console.log("couldnt sign out");
         console.log("e.message");
       });
+    localStorage.clear();
   };
 
   const value = {

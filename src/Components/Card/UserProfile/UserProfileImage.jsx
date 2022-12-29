@@ -5,7 +5,6 @@ import "./userprofileimage.css";
 
 function UserProfileImage() {
   const { logOut, currentUser } = useAuth();
-  console.log(currentUser);
   return (
     <div className="profilecard-container">
       <div className="profile-header">
