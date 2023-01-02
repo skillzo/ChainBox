@@ -15,27 +15,27 @@ import { ContextProvider } from "./Store/Context/AuthContext";
 import ErrorPage from "./Navigation/ErrorPage";
 import UserProfile from "./Navigation/UserProfile";
 import LoginPage from "./Navigation/LoginPage";
-import { PrivateRoutes } from "./Store/ProtectedRoute/ProtectedRoute";
+// import { PrivateRoutes } from "./Store/ProtectedRoute/ProtectedRoute";
 
 function App() {
   return (
     <ContextProvider>
       <Routes>
-        <Route element={<PrivateRoutes />}>
-          <Route path="/" element={<Home />}>
-            <Route index element={<MainHome />} />
-            <Route path="/watchlist" element={<WatchLIst />} />
-            <Route path="/news" element={<News />} />
-            <Route path="/exchange" element={<Exchange />} />
-          </Route>
-          <Route path="/search" element={<Search />} />
-          <Route path="/Portfolio" element={<Portfolio />} />
-          <Route path="/cardinfo/:id" element={<CardInfo />} />
-          <Route path="/newsinfo/:id" element={<NewsInfo />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/profile" element={<UserProfile />} />
-          <Route path="*" element={<ErrorPage />} />
+        {/* <Route element={<PrivateRoutes />}> */}
+        <Route path="/" element={<Home />}>
+          <Route index element={<MainHome />} />
+          <Route path="/watchlist" element={<WatchLIst />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/exchange" element={<Exchange />} />
         </Route>
+        <Route path="/search" element={<Search />} />
+        <Route path="/Portfolio" element={<Portfolio />} />
+        <Route path="/cardinfo/:id" element={<CardInfo />} />
+        <Route path="/newsinfo/:id" element={<NewsInfo />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="*" element={<ErrorPage />} />
+        {/* </Route> */}
         <Route path="/login" element={<LoginPage />} />
       </Routes>
     </ContextProvider>
