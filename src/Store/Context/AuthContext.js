@@ -97,7 +97,7 @@ export const ContextProvider = ({ children }) => {
       })
       .catch((e) => {
         console.log("couldnt sign out");
-        console.log("e.message");
+        console.log(e.message);
       });
     localStorage.clear();
   };
