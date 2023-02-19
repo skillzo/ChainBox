@@ -4,7 +4,7 @@ import styles from "./coincard.module.css";
 
 function CoinCard({ rank, icon, coinName, mkCap, price, symbol, change, id }) {
   return (
-    <Link to={`/cardinfo/${id}`}>
+    <Link to={`/CoinInfo/${id}`}>
       <div className={styles["coin-card"]}>
         <div className={styles["coin-number"]}>{rank}</div>
         <div className={styles["coin-logo"]}>

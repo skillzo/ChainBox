@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./login.module.css";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
-import { useAuth } from "../../Store/Context/AuthContext";
+import { useAuth } from "../../Store/AuthContext";
 
 export default function Login() {
   const { logInWithGoogle, loginError } = useAuth();

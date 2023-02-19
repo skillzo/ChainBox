@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useReducer } from "react";
 import { signInWithPopup, signOut } from "firebase/auth";
-import { auth, provider } from "../../Store/Firebase/Firebase";
+import { auth, provider } from "../Firebase/Firebase";
 import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext();

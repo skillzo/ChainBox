@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import SearchIcon from "@mui/icons-material/Search";
 import { IconCheckboxes } from "../Button/Button";
-import { useAuth, ACTIONS } from "../../Store/Context/AuthContext";
+import { useAuth, ACTIONS } from "../../Store/AuthContext";
 function Navbar3({ currItem }) {
   const { dispatch, checked, setChecked } = useAuth();
   const navigate = useNavigate();

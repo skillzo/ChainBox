@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Filter from "../Components/Filter/Filter";
 import CoinCard from "../Components/Card/Coin/CoinCard";
-import { useAuth } from "../Store/Context/AuthContext";
+import { useAuth } from "../Store/AuthContext.js";
 
 function WatchLIst() {
   const { currentUser, state } = useAuth();

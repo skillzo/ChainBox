@@ -4,8 +4,8 @@ import NewsCard from "../Components/Card/News/NewsCard";
 import Footer from "../Components/Footer/Footer";
 import SearchBar from "../Components/Search/SearchBar";
 import Wrapper from "../Components/Wrapper/Wrapper";
-import useFetch2 from "../Store/Apifolder/UseFetch2";
-import useFetch from "../Store/Apifolder/UseFetch";
+import useFetch2 from "../Hooks/UseFetch2";
+import useFetch from "../Hooks//UseFetch";
 
 import {
   // SBasicCard,

@@ -1,5 +1,5 @@
 import React from "react";
-import { ACTIONS, useAuth } from "../../../Store/Context/AuthContext";
+import { ACTIONS, useAuth } from "../../../Store/AuthContext";
 import styles from "./coincard2.module.css";
 function CoinCard2({
   icon,
