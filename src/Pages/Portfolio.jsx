@@ -5,7 +5,7 @@ import Navbar2 from "../Components/Navbar/Navbar2";
 import Footer from "../Components/Footer/Footer";
 import PortfolioFilter from "../Components/Filter/PortfolioFilter";
 import Button from "../Components/Button/Button";
-import { useAuth } from "../Store/Context/AuthContext";
+import { useAuth } from "../Store/AuthContext";
 import { Link } from "react-router-dom";
 import ChartJS from "../Components/Card/Charts/Chartjs/ChartJs";
 

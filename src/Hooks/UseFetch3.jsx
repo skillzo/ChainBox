@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "../Context/AuthContext";
+import { useAuth } from "../../Store/Context/AuthContext";
 
 export default function useFetch3(url, options) {
   const [data, setData] = useState();

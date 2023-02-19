@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import "./navigation.css";
-import NewsHeader from "../Components/Header/NewsHeader";
-import NewsCard from "../Components/Card/News/NewsCard";
-import ErrorPage from "./ErrorPage";
-import { SCoinCard } from "../Components/Card/Skeletons/SkeletonCard";
-import useFetch2 from "../Store/Apifolder/UseFetch2";
+import "../navigation.css";
+import NewsHeader from "../../Components/Header/NewsHeader";
+import NewsCard from "../../Components/Card/News/NewsCard";
+import ErrorPage from "../Error/404";
+import { SCoinCard } from "../../Components/Card/Skeletons/SkeletonCard";
+import useFetch2 from "../../Hooks/UseFetch2.js";
 
 function News() {
   const { newData, loading, error } = useFetch2();

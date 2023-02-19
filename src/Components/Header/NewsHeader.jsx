@@ -1,6 +1,6 @@
 import React from "react";
-import useFetch2 from "../../Store/Apifolder/UseFetch2";
-import { useAuth } from "../../Store/Context/AuthContext";
+import useFetch2 from "../../Hooks/UseFetch2.js";
+import { useAuth } from "../../Store/AuthContext";
 import { ImageSkeleton } from "../Card/Skeletons/SkeletonCard";
 import "./newsheader.css";
 

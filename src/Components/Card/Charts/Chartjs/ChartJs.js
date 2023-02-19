@@ -2,7 +2,7 @@ import React from "react";
 import "./chartjs.css";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import { useAuth } from "../../../../Store/Context/AuthContext";
+import { useAuth } from "../../../../Store/AuthContext";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 export default function ChartJs() {
