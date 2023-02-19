@@ -1,5 +1,5 @@
 import React from "react";
-import { useAuth } from "../../../Store/Context/AuthContext";
+import { useAuth } from "../../../Store/AuthContext";
 import Button from "../../Button/Button";
 import "./userprofileimage.css";
 

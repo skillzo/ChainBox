@@ -23,7 +23,7 @@ export default function useFetch2() {
             throw new Error(`This is an Api Error: ${response.status}`);
           } else {
             var cData = await response.json();
-        
+
             setData(cData?.articles);
             setError("");
           }

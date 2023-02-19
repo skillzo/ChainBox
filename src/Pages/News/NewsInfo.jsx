@@ -1,14 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Description from "../Components/Card/NewsInfo/Description";
-import NewsHeader from "../Components/Card/NewsInfo/NewsHeader";
+import Description from "../../Components/Card/Description/CoinDescription";
+import NewsHeader from "../../Components/Header/NewsHeader";
 import {
   ImageSkeleton,
   TextSkeleton,
-} from "../Components/Card/Skeletons/SkeletonCard";
+} from "../../Components/Card/Skeletons/SkeletonCard.jsx";
 
-import useFetch2 from "../Store/Apifolder/UseFetch2";
-import ErrorPage from "./ErrorPage";
+import useFetch2 from "../../Hooks/UseFetch2.js";
+import ErrorPage from "../Error/404";
 
 function NewsInfo() {
   const { id } = useParams();

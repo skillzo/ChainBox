@@ -2,11 +2,11 @@ import React, { Fragment } from "react";
 import Filter from "../Components/Filter/Filter";
 import CoinCard from "../Components/Card/Coin/CoinCard";
 import Filter2 from "../Components/Filter/Filter2";
-import useFetch from "../Store/Apifolder/UseFetch";
+import useFetch from "../Hooks/UseFetch";
 import { SCoinCard } from "../Components/Card/Skeletons/SkeletonCard";
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "./Error/404";
 
-function MainHome() {
+function Home() {
   const url =
     "https://coingecko.p.rapidapi.com/coins/markets?vs_currency=usd&page=1&per_page=100&order=market_cap_desc";
 
@@ -53,4 +53,4 @@ function MainHome() {
   );
 }
 
-export default MainHome;
+export default Home;

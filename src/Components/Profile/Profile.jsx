@@ -3,7 +3,7 @@ import "./profile.css";
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
-import { useAuth } from "../../Store/Context/AuthContext";
+import { useAuth } from "../../Store/AuthContext";
 
 function Profile() {
   const { currentUser } = useAuth();

@@ -1,6 +1,6 @@
 import React from "react";
-import Error from "../Components/Error/Error";
-import Wrapper from "../Components/Wrapper/Wrapper";
+import Error from "../../Components/Error/Error";
+import Wrapper from "../../Components/Wrapper/Wrapper";
 
 function ErrorPage() {
   return (

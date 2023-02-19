@@ -6,12 +6,12 @@ import StatCard from "../Components/Card/Stat/StatCard";
 import Button from "../Components/Button/Button";
 import Navbar3 from "../Components/Navbar/Navbar3";
 import Wrapper from "../Components/Wrapper/Wrapper";
-import useFetch from "../Store/Apifolder/UseFetch";
-import { ACTIONS, useAuth } from "../Store/Context/AuthContext";
+import useFetch from "../Hooks/UseFetch";
+import { ACTIONS, useAuth } from "../Store/AuthContext";
 import NewsCard from "../Components/Card/News/NewsCard";
 import CoinDescription from "../Components/Card/Description/CoinDescription";
 
-function CardInfo() {
+function CoinInfo() {
   const { id } = useParams();
   const url = `https://coingecko.p.rapidapi.com/coins/${id}?localization=true&tickers=true&market_data=true&community_data=true&developer_data=true&sparkline=false`;
 
@@ -121,4 +121,4 @@ function CardInfo() {
   );
 }
 
-export default CardInfo;
+export default CoinInfo;

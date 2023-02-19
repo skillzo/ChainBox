@@ -1,9 +1,9 @@
 import React from "react";
-import Coincard3 from "../Components/Card/Coin/CoinCard3";
-import { SCoinCard } from "../Components/Card/Skeletons/SkeletonCard";
-import Filter2 from "../Components/Filter/Filter2";
-import useFetch from "../Store/Apifolder/UseFetch";
-import ErrorPage from "./ErrorPage";
+import Coincard3 from "../../Components/Card/Coin/CoinCard3";
+import { SCoinCard } from "../../Components/Card/Skeletons/SkeletonCard";
+import Filter2 from "../../Components/Filter/Filter2";
+import useFetch from "../../Hooks/UseFetch";
+import ErrorPage from "../Error/404";
 
 function Exchange() {
   const options = {
