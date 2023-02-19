@@ -21,6 +21,7 @@ function Home() {
         </div>
         <Footer />
       </div>
+      {/* New comment */}
       <div className="on-desktop">
         This app is optimized for just mobile please view on a mobile device
       </div>
