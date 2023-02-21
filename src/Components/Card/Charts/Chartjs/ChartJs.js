@@ -1,5 +1,5 @@
 import React from "react";
-import "./chartjs.css";
+import styles from "./chartjs.module.css";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import { useAuth } from "../../../../Store/AuthContext";
@@ -38,7 +38,7 @@ export default function ChartJs() {
     ],
   };
   return (
-    <div className="chartjs_container">
+    <div className={styles["chartjs_container"]}>
       <Doughnut data={data} />
     </div>
   );
