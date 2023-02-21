@@ -1,0 +1,56 @@
+.coinheader-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.coinheader-main {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.coinheader-name {
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #57657c;
+}
+.coinheader-price {
+  margin: 0.1em 0;
+  font-weight: 800;
+  font-size: 2em;
+}
+
+/* chnages in price here  */
+.CoinHeader_change {
+  display: flex;
+  align-items: center;
+}
+.CoinHeader_change__numberred {
+  width: 80%;
+  font-weight: 800;
+  margin-left: 0.3em;
+  color: #ff163a;
+}
+.CoinHeader_change__numbergreen {
+  width: 80%;
+  font-weight: 800;
+  margin-left: 0.3em;
+  color: #14c784;
+}
+.coinheader-change__green {
+  width: 20%;
+  background-color: #e8f9f3;
+  color: #14c784;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  font-weight: 800;
+  text-align: center;
+}
+.coinheader-change__red {
+  width: 20%;
+  background-color: #ffeeed;
+  color: #ff163a;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  font-weight: 800;
+  text-align: center;
+}

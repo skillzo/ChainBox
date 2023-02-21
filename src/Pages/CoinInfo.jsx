@@ -111,11 +111,14 @@ function CoinInfo() {
               );
             })}
         </div>
-        <div onClick={() => addToPortfolio(sData)}>
-          <Button bgColor={"black"} btnColor={"#f4f5f6"}>
-            Add To Portfolio
-          </Button>
-        </div>
+
+        <Button
+          bgColor={"black"}
+          btnColor={"#f4f5f6"}
+          onClick={() => addToPortfolio(sData)}
+        >
+          Add To Portfolio
+        </Button>
       </div>
     </Wrapper>
   );
