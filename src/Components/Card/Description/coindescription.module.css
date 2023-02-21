@@ -1,0 +1,56 @@
+.coindescription-container {
+  margin-top: 2em;
+}
+.coindescription-description {
+  font-size: 0.95em;
+  margin-top: 1em;
+}
+.coindescription-description p {
+  color: #80899d;
+  word-break: break-all;
+}
+.coindescription-description a {
+  color: blue;
+}
+
+.description-section {
+  margin-top: 3em;
+}
+.description-section1 {
+  margin: 4em 0;
+}
+.description-link h3 {
+  margin-left: 0.5em;
+  font-size: 1em;
+}
+.description-section__main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1em;
+  border: 1px solid #f2f5f8;
+  margin: 0.5em 0;
+  border-radius: 10px;
+}
+.description-section__name {
+  width: 40%;
+  font-size: 1em;
+  font-weight: 600;
+  color: #80899d;
+}
+.description-section__link {
+  width: 60%;
+  overflow: hidden;
+  text-align: right;
+  white-space: nowrap;
+}
+.description-section__link a {
+  color: blue;
+  font-size: 0.8em;
+  font-weight: 700;
+}
+.description-section__info {
+  font: italic;
+  font-size: 0.8em;
+  font-weight: 600;
+}
