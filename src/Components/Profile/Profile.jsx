@@ -7,37 +7,33 @@ import { useAuth } from "../../Store/AuthContext";
 
 function Profile() {
   const { currentUser } = useAuth();
+
   return (
     <div className="profile-container">
-      <Link to="/profile">
-        <div className="profile-name">
-          <img
-            src={
-              currentUser?.photoURL ||
-              "https://img.a.transfermarkt.technology/portrait/big/253677-1593437372.jpg?lm=1"
-            }
-            alt=""
-          />
-          {currentUser?.displayName || "Skillzo"}
-        </div>
-      </Link>
-      <Link to="/">
-        <div className="profile-logo">
-          <p>
-            Chain
-            <span>
-              <SmartToyIcon sx={{ fontSize: 20, color: "yellow" }} />
-              Box
-            </span>
-          </p>
-        </div>
+      <Link to="/profile" className="profile-name">
+        <img
+          src={
+            currentUser?.photoURL ||
+            "https://img.a.transfermarkt.technology/portrait/big/253677-1593437372.jpg?lm=1"
+          }
+          alt="userProfile"
+        />
+        {currentUser?.displayName || "Skillzo"}
       </Link>
 
-      <div className="profile-search">
-        <Link to="/search">
-          <SearchIcon sx={{ color: "#fff" }} />
-        </Link>
-      </div>
+      <Link to="/" className="profile-logo">
+        <p>
+          Chain
+          <span>
+            <SmartToyIcon sx={{ fontSize: 20, color: "yellow" }} />
+            Box
+          </span>
+        </p>
+      </Link>
+
+      <Link to="/search" className="profile-search">
+        <SearchIcon sx={{ color: "#fff" }} />
+      </Link>
     </div>
   );
 }

@@ -1,27 +1,43 @@
-import React from "react";
+import React, { Suspense } from "react";
+
+import HashLoader from "react-spinners/HashLoader";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./Pages/index.jsx";
 import HomeLayout from "./Layout/HomeLayout.jsx";
-import News from "./Pages/News/News.jsx";
-import NewsInfo from "./Pages/News/NewsInfo.jsx";
-import CoinInfo from "./Pages/CoinInfo.jsx";
-import Portfolio from "./Pages/Portfolio";
-import WatchLIst from "./Pages/WatchLIst.jsx";
-import Search from "./Pages/Search";
-import Exchange from "./Pages/Exchange";
 import Settings from "./Pages/Settings";
 import { ContextProvider } from "./Store/AuthContext";
-import ErrorPage from "./Pages/Error/404.jsx";
-import UserProfile from "./Pages/UserProfile";
 import LoginPage from "./Pages/LoginPage";
 import { PrivateRoutes } from "./Layout/ProtectedRoute";
+const News = React.lazy(() => import("./Pages/News/News.jsx"));
+const NewsInfo = React.lazy(() => import("./Pages/News/NewsInfo.jsx"));
+const UserProfile = React.lazy(() => import("./Pages/UserProfile"));
+const ErrorPage = React.lazy(() => import("./Pages/Error/404.jsx"));
+const Exchange = React.lazy(() => import("./Pages/Exchange"));
+const Search = React.lazy(() => import("./Pages/Search"));
+const WatchLIst = React.lazy(() => import("./Pages/WatchLIst.jsx"));
+const Portfolio = React.lazy(() => import("./Pages/Portfolio"));
+const CoinInfo = React.lazy(() => import("./Pages/CoinInfo.jsx"));
 
 function App() {
   return (
     <ContextProvider>
-      <Routes>
-        <Route element={<PrivateRoutes />}>
+      <Suspense
+        fallback={
+          <HashLoader
+            color="#123783"
+            size={150}
+            margin="0 auto"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          />
+        }
+      >
+        <Routes>
+          {/* <Route element={<PrivateRoutes />}> */}
           <Route path="/" element={<HomeLayout />}>
             <Route index element={<Home />} />
             <Route path="/watchlist" element={<WatchLIst />} />
@@ -35,9 +51,10 @@ function App() {
           <Route path="/settings" element={<Settings />} />
           <Route path="/profile" element={<UserProfile />} />
           <Route path="*" element={<ErrorPage />} />
-        </Route>
-        <Route path="/login" element={<LoginPage />} />
-      </Routes>
+          {/* </Route> */}
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </Suspense>
     </ContextProvider>
   );
 }

@@ -39,14 +39,14 @@ function Footer() {
     >
       <Link to="/">
         <div className={styles.footer1}>
-          <HomeIcon sx={{ color: "#a2adb8", fontSize: 27 }} />
+          <HomeIcon sx={{ color: "#a2adb8", fontSize: 35 }} />
           Home
         </div>
       </Link>
       <Link to="/search">
         {" "}
         <div className={styles.footer1}>
-          <SearchIcon sx={{ color: "#a2adb8", fontSize: 25 }} />
+          <SearchIcon sx={{ color: "#a2adb8", fontSize: 30 }} />
           Search
         </div>
       </Link>
@@ -60,14 +60,14 @@ function Footer() {
       </div>
       <Link to="/portfolio">
         <div className={styles.footer1}>
-          <PieChartIcon sx={{ color: "#a2adb8", fontSize: 25 }} />
+          <PieChartIcon sx={{ color: "#a2adb8", fontSize: 30 }} />
           Portfolio
         </div>
       </Link>
 
       <Link to="/settings">
         <div className={styles.footer1}>
-          <SettingsIcon sx={{ color: "#a2adb8", fontSize: 25 }} />
+          <SettingsIcon sx={{ color: "#a2adb8", fontSize: 30 }} />
           Settings
         </div>
       </Link>
