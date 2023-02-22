@@ -5,6 +5,7 @@
 .container {
   max-width: 480px;
   width: 100%;
+  position: relative;
 }
 
 .on-desktop {
@@ -32,8 +33,9 @@
   height: 20vh;
 }
 .navigation-body {
-  position: relative;
-  top: -3.5em;
+  position: absolute;
+  top: 9em;
+  width: 100%;
   background-color: white;
   border-top-left-radius: 35px;
   border-top-right-radius: 35px;

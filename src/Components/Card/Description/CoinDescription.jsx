@@ -68,7 +68,6 @@ export default function CoinDescription({
     },
   ];
 
-  console.log(description?.split("  "));
   return (
     <div className={styles["coindescription-container"]}>
       <h2>About {name}</h2>

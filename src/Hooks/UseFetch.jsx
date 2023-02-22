@@ -1,4 +1,6 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
 
 export default function useFetch(url, options) {
   const [data, setData] = useState();
@@ -34,3 +36,4 @@ export default function useFetch(url, options) {
   }, []);
   return { data, loading, error };
 }
+

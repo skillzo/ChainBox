@@ -7,6 +7,8 @@ function CoinCard({ rank, icon, coinName, mkCap, price, symbol, change, id }) {
     <Link to={`/CoinInfo/${id}`}>
       <div className={styles["coin-card"]}>
         <div className={styles["coin-number"]}>{rank}</div>
+
+        {/* coin logo and mkp cap */}
         <div className={styles["coin-logo"]}>
           <img src={icon} alt="" />
 
@@ -17,22 +19,25 @@ function CoinCard({ rank, icon, coinName, mkCap, price, symbol, change, id }) {
             </div>
           </div>
         </div>
+
+        {/* price change in 24hrs  */}
         {price < 1 ? (
-          <div className={styles["coin-price"]}>{price.toFixed(3)}</div>
+          <div className={styles["coin-price"]}>{price.toFixed(3) || 0}</div>
         ) : (
-          <div className={styles["coin-price"]}>{price.toFixed(2)}</div>
+          <div className={styles["coin-price"]}>{price.toFixed(2) || 0}</div>
         )}
 
+        {/* percetage change in 24hrs  */}
         {change < 0 ? (
           <div className={`${styles["coin-change"]} ${"red"}`}>
-            {Math.abs(change.toFixed(2))}
+            {Math.abs(change.toFixed(2)) || 0}
           </div>
         ) : (
           <div className={`${styles["coin-change"]} ${"green"}`}>
-            {change.toFixed(2)}
+            {change.toFixed(2) || 0}
           </div>
         )}
-        <div className={styles["coin-holding"]}>10{symbol.toUpperCase()}</div>
+        <div className={styles["coin-holding"]}>0{symbol.toUpperCase()}</div>
       </div>
     </Link>
   );

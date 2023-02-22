@@ -40,12 +40,10 @@ function CoinInfo() {
     const coinInPortfolio = state.portfolio.map((coin) => {
       return coin.id;
     });
-    console.log(coinInPortfolio);
+
     if (coinInPortfolio.includes(id)) {
-      console.log("already have coin");
       return;
     } else {
-      console.log(" adding coin");
       dispatch({
         type: ACTIONS.ADD_TO_PORTFOLIO,
         payload: {
