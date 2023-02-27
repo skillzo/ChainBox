@@ -30,11 +30,11 @@ function CoinCard({ rank, icon, coinName, mkCap, price, symbol, change, id }) {
         {/* percetage change in 24hrs  */}
         {change < 0 ? (
           <div className={`${styles["coin-change"]} ${"red"}`}>
-            {Math.abs(change.toFixed(2)) || 0}
+            {Math.abs(change?.toFixed(2)) || 0}
           </div>
         ) : (
           <div className={`${styles["coin-change"]} ${"green"}`}>
-            {change.toFixed(2) || 0}
+            {change?.toFixed(2) || 0}
           </div>
         )}
         <div className={styles["coin-holding"]}>0{symbol.toUpperCase()}</div>

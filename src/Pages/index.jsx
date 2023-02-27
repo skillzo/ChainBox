@@ -42,7 +42,10 @@ function Home() {
     onSuccess: () => {
       setToken(coinData);
     },
+    retryOnMount: true,
+    refetchOnWindowFocus: false
   });
+
   console.log("token in homepage", token);
 
   // loading and error state
@@ -65,8 +68,8 @@ function Home() {
         holdings="Holdings"
       />
       {/* top 100 mapped here */}
-      {token &&
-        token?.map((coin) => {
+      {coinData &&
+        coinData?.map((coin) => {
           return (
             <CoinCard
               key={coin.id}
