@@ -1,14 +1,18 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Filter from "../Components/Filter/Filter";
 import CoinCard from "../Components/Card/Coin/CoinCard";
 import Filter2 from "../Components/Filter/Filter2";
-import useFetch from "../Hooks/UseFetch";
 import { SCoinCard } from "../Components/Card/Skeletons/SkeletonCard";
 import ErrorPage from "./Error/404";
+import { useQuery } from "react-query";
+import axios from "axios";
+import { ReactQueryDevtools } from "react-query/devtools";
+import Loading from "../Components/Loading/Loading";
 
 function Home() {
+  const [token, setToken] = useState([]);
   const url =
-    "https://coingecko.p.rapidapi.com/coins/markets?vs_currency=usd&page=1&per_page=100&order=market_cap_desc";
+    "https://coingecko.p.rapidapi.com/coins/markets?vs_currency=usd&page=1&per_page=250&order=market_cap_desc";
 
   const options = {
     method: "GET",
@@ -18,10 +22,41 @@ function Home() {
     },
   };
 
-  const { data: coinData, loading, error } = useFetch(url, options);
+  // fetcher
+  const fetcher = () => {
+    return axios.get(url, options);
+  };
+
+  // api call for the token
+  const {
+    data: coinData,
+    isLoading,
+    isError,
+    error,
+    isFetching,
+  } = useQuery("tokens", fetcher, {
+    select: (data) => {
+      const coinData = data?.data;
+      return coinData;
+    },
+    onSuccess: () => {
+      setToken(coinData);
+    },
+  });
+  console.log("token in homepage", token);
+
+  // loading and error state
+  if (isLoading || isFetching)
+    return (
+      <h2>
+        <Loading />
+      </h2>
+    );
+  if (isError && !token)
+    return <div className="error-page">{error && <ErrorPage />}</div>;
   return (
     <Fragment>
-      <Filter />
+      <Filter token={token} setToken={setToken} />
       <Filter2
         rank="#"
         name="Name"
@@ -29,11 +64,9 @@ function Home() {
         change="Change"
         holdings="Holdings"
       />
-      <div className="skeleton-loading">{loading && <SCoinCard />}</div>
-      <div className="error-page">{error && <ErrorPage />}</div>
-
-      {coinData &&
-        coinData.map((coin) => {
+      {/* top 100 mapped here */}
+      {token &&
+        token?.map((coin) => {
           return (
             <CoinCard
               key={coin.id}
@@ -49,6 +82,7 @@ function Home() {
             />
           );
         })}
+      <ReactQueryDevtools initialIsOpen={true} position={"bottom-right"} />
     </Fragment>
   );
 }

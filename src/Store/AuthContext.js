@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const UserContext = createContext();
 
+// cache in local storage
 const watchListLocalStorage = JSON.parse(
   localStorage.getItem("watchlist") || "[]"
 );
@@ -20,7 +21,7 @@ const initialState = {
   watchList: watchListLocalStorage,
 };
 
-// /////////////////////////////////////
+// reducer actions
 export const ACTIONS = {
   ADD_TO_PORTFOLIO: "add-to-portfolio",
   DELETE_FROM_PORTFOLIO: "remove-from-porfolio",
@@ -74,6 +75,7 @@ export const ContextProvider = ({ children }) => {
   const [loginError, setLoginError] = useState("");
   const navigate = useNavigate();
 
+  // firebase functions
   const logInWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then((result) => {

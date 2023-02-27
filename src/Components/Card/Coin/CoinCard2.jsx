@@ -12,7 +12,7 @@ function CoinCard2({
   currItem,
 }) {
   const { dispatch } = useAuth();
-  console.log(currItem);
+
   return (
     <div
       className={styles["coincard2-container"]}

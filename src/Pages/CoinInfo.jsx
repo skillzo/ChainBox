@@ -40,12 +40,10 @@ function CoinInfo() {
     const coinInPortfolio = state.portfolio.map((coin) => {
       return coin.id;
     });
-    console.log(coinInPortfolio);
+
     if (coinInPortfolio.includes(id)) {
-      console.log("already have coin");
       return;
     } else {
-      console.log(" adding coin");
       dispatch({
         type: ACTIONS.ADD_TO_PORTFOLIO,
         payload: {
@@ -111,11 +109,14 @@ function CoinInfo() {
               );
             })}
         </div>
-        <div onClick={() => addToPortfolio(sData)}>
-          <Button bgColor={"black"} btnColor={"#f4f5f6"}>
-            Add To Portfolio
-          </Button>
-        </div>
+
+        <Button
+          bgColor={"black"}
+          btnColor={"#f4f5f6"}
+          onClick={() => addToPortfolio(sData)}
+        >
+          Add To Portfolio
+        </Button>
       </div>
     </Wrapper>
   );

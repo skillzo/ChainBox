@@ -11,6 +11,7 @@ export default function Button({
   btnColor,
   margin,
   display,
+  onClick,
 }) {
   return (
     <>
@@ -22,6 +23,7 @@ export default function Button({
           color: btnColor,
           display: display,
         }}
+        onClick={onClick}
       >
         {children}
       </button>

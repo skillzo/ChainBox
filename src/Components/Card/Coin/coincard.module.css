@@ -60,4 +60,7 @@
 .coin-holding {
   width: 15%;
   text-align: right;
+  font-size: 0.95em;
+  color: #59657c;
+  font-weight: 700;
 }

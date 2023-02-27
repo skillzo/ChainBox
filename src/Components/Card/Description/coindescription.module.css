@@ -17,7 +17,7 @@
   margin-top: 3em;
 }
 .description-section1 {
-  margin: 3em 0;
+  margin: 4em 0;
 }
 .description-link h3 {
   margin-left: 0.5em;
@@ -27,9 +27,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em 0.5em;
+  padding: 0 1em;
   border: 1px solid #f2f5f8;
-  margin: 1em 0;
+  margin: 0.5em 0;
   border-radius: 10px;
 }
 .description-section__name {
@@ -40,9 +40,17 @@
 }
 .description-section__link {
   width: 60%;
+  overflow: hidden;
   text-align: right;
-  word-break: break-all;
+  white-space: nowrap;
 }
 .description-section__link a {
   color: blue;
+  font-size: 0.8em;
+  font-weight: 700;
+}
+.description-section__info {
+  font: italic;
+  font-size: 0.8em;
+  font-weight: 600;
 }

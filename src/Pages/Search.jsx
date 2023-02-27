@@ -59,7 +59,6 @@ function Search() {
   // const quaryCoinNewData = quaryCoinData?.filter((coin) => {
   //   return coin.id.toLowerCase() === input.toLowerCase();
   // });
-  // console.log(quaryExchangeNewData);
   return (
     <Fragment>
       <Wrapper>

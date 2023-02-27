@@ -1,7 +1,8 @@
 import React from "react";
-import "./coindescription.css";
+import styles from "./coindescription.module.css";
+import { v4 as uuidv4 } from "uuid";
 
-function CoinDescription({
+export default function CoinDescription({
   name,
   description,
   homepage,
@@ -16,89 +17,127 @@ function CoinDescription({
   github_stat,
   blockchain_Explorer,
 }) {
+  const links = [
+    {
+      homepage: "Homepage",
+      link: homepage,
+    },
+    {
+      homepage: "Scan:",
+      coinName: name,
+      link: blockchain_link,
+    },
+    {
+      homepage: "Explorer:",
+      coinName: name,
+      link: forum,
+    },
+  ];
+
+  const socialPages = [
+    {
+      homepage: "Official Forum:",
+      link: forum,
+    },
+    {
+      homepage: "Discord:",
+      link: discord,
+    },
+    {
+      homepage: "Subreddit:",
+      link: reddit,
+    },
+  ];
+
+  const info = [
+    {
+      tag: "Twitter Followers",
+      info: twitter_stat,
+    },
+    {
+      tag: "Reddit Followers",
+      info: subreddit_stat,
+    },
+    {
+      tag: "Telegram Followers",
+      info: telegram_stat,
+    },
+    {
+      tag: "Github Subscribers",
+      info: github_stat,
+    },
+  ];
+
   return (
-    <div className="coindescription-container">
+    <div className={styles["coindescription-container"]}>
       <h2>About {name}</h2>
-      <div className="coindescription-description">
-        <p>What is {name}?</p>
+      <div className={styles["coindescription-description"]}>
+        <p style={{ fontWeight: "700" }}>What is {name}?</p>
         <p>{description}</p>
       </div>
 
-      <div className="description-link description-section">
-        <div className="description-section1">
+      <div className={styles["description-link description-section"]}>
+        {/* Section 1: Links */}
+        <div className={styles["description-section1"]}>
           <h3>Links</h3>
-          <div className="description-section__main">
-            <div className="description-section__name">Homepage:</div>
-            <div className="description-section__link">
-              <a href={homepage}>{homepage}</a>
-            </div>
-          </div>
-
-          <div className="description-section__main">
-            <div className="description-section__name">{name} Scan:</div>
-            <div className="description-section__link">
-              <a href={blockchain_link}>{blockchain_link}</a>
-            </div>
-          </div>
-          <div className="description-section__main">
-            <div className="description-section__name">{name} Explorer:</div>
-            <div className="description-section__link">
-              <a href={blockchain_Explorer}>{blockchain_Explorer}</a>
-            </div>
-          </div>
-        </div>
-        <div className="description-section1">
-          <h3>Community</h3>
-          <div className="description-section__main">
-            <div className="description-section__name">Official Forum:</div>
-            <div className="description-section__link">
-              <a href={forum}>https://docs.solana.com/</a>
-            </div>
-          </div>
-          <div className="description-section__main">
-            <div className="description-section__name">
-              Announcement Channel:
-            </div>
-            <div className="description-section__link">
-              <a href={announcement}>Medium</a>
-            </div>
-          </div>
-          <div className="description-section__main">
-            <div className="description-section__name">Discord Group:</div>
-            <div className="description-section__link">
-              <a href={discord}>Discord</a>
-            </div>
-          </div>
-          <div className="description-section__main">
-            <div className="description-section__name">Subreddit:</div>
-            <div className="description-section__link">
-              <a href={reddit}>Subreddit</a>
-            </div>
-          </div>
+          {links.map((item) => {
+            return (
+              <CoinLinks
+                key={uuidv4()}
+                tag={item.homepage}
+                homeLink={item.link}
+                coinName={item.coinName}
+              />
+            );
+          })}
         </div>
 
+        {/* links to social groups  */}
         <div className="description-section1">
-          <h3>Community Stat</h3>
-          <div className="description-section__main">
-            <div className="description-section__name">Twitter Followers:</div>
-            <div className="description-section__link"> {twitter_stat}</div>
-          </div>
-          <div className="description-section__main">
-            <div className="description-section__name">Reddit Subscribers:</div>
-            <div className="description-section__link"> {subreddit_stat}</div>
-          </div>
-          <div className="description-section__main">
-            <div className="description-section__name">Telegram Users:</div>
-            <div className="description-section__link"> {telegram_stat}</div>
-          </div>
-          <div className="description-section__main">
-            <div className="description-section__name">Github Subscribers:</div>
-            <div className="description-section__link"> {github_stat}</div>
-          </div>
+          <h3>Social Groups</h3>
+          {socialPages.map((item) => {
+            return (
+              <CoinLinks
+                key={uuidv4()}
+                tag={item.homepage}
+                homeLink={item.link}
+                coinName={item.coinName}
+              />
+            );
+          })}
+        </div>
+
+        {/* Community info */}
+        <div className={styles["description-section1"]}>
+          <h3>Community Info</h3>
+          {info.map((item) => {
+            return (
+              <CommunityInfo key={uuidv4()} tag={item.tag} info={item.info} />
+            );
+          })}
         </div>
       </div>
     </div>
   );
 }
 
-export default CoinDescription;
+export const CoinLinks = ({ homeLink, tag, coinName }) => {
+  return (
+    <div className={styles["description-section__main"]}>
+      <h3 className={styles["description-section__name"]}>
+        {coinName} {tag}
+      </h3>
+      <div className={styles["description-section__link"]}>
+        <a href={homeLink}>{homeLink}</a>
+      </div>
+    </div>
+  );
+};
+export const CommunityInfo = ({ tag, info }) => {
+  return (
+    <div className={styles["description-section__main"]}>
+      <h3 className={styles["description-section__name"]}>{tag}</h3>
+      <em className={styles["description-section__info"]}>{info}</em>
+    </div>
+  );
+};

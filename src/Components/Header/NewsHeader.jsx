@@ -2,7 +2,7 @@ import React from "react";
 import useFetch2 from "../../Hooks/UseFetch2.js";
 import { useAuth } from "../../Store/AuthContext";
 import { ImageSkeleton } from "../Card/Skeletons/SkeletonCard";
-import "./newsheader.css";
+import styles from "./newsheader.module.css";
 
 function NewsHeader({ icon }) {
   const { currentUser } = useAuth();
@@ -10,8 +10,8 @@ function NewsHeader({ icon }) {
   const time = new Date().getHours();
   return (
     <>
-      <div className="news-header__container">
-        <div className="news-greeting">
+      <div className={styles["news-header__container"]}>
+        <div className={styles["news-greeting"]}>
           {time < 11 ? (
             <h1>Good Morning</h1>
           ) : time >= 11 && time <= 16 ? (
@@ -23,11 +23,11 @@ function NewsHeader({ icon }) {
           )}
           <p> {currentUser?.displayName || "Skillzo"}</p>
         </div>
-        <div className="greetings-text">
+        <div className={styles["greetings-text"]}>
           <p>Explore The World With A Single Click </p>
         </div>
 
-        <div className="header-news__image">
+        <div className={styles["header-news__image"]}>
           {loading ? <ImageSkeleton /> : <img src={icon} alt="" />}
         </div>
 

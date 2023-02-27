@@ -10,7 +10,6 @@ function WatchLIst() {
     localStorage.setItem("watchlist", JSON.stringify(state.watchList));
   }, [state.watchList]);
 
-  console.log(state.watchList);
   return (
     <div className="watchlist-container">
       <h3> {currentUser.displayName || "Skillzo"}'s Watchlist</h3>
