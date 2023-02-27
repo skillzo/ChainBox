@@ -2,15 +2,18 @@
   position: fixed;
   z-index: 1;
   background-color: white;
-  bottom: 0;
-  width: 100%;
+  bottom: 2em;
+  width: 80%;
+  margin: 0 10%;
   max-width: 460px;
-  border-top: 1px solid #a2adb8;
+  border: 1px solid #a2adb8;
+  border-radius: 35px;
   display: flex;
   justify-content: space-between;
-  font-weight: 600;
+  align-items: center;
+  font-weight: 700;
   font-size: 1em;
-  padding: 0.5em 3.5em;
+  padding: 0.5em 1.5em;
 }
 
 .footer-scroll {
@@ -22,26 +25,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 0.5em;
   font-size: 0.7em;
   font-weight: 500;
   color: #a2adb8;
 }
-.footer1:active {
-  color: #1257dd;
-}
+.footer1:active,
 .footer1:focus {
   color: #1257dd;
 }
-.footer1 .footer1 p {
-  margin-top: 0.1em;
-}
 .footer-news {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: -2em;
   border-radius: 50%;
   box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.5);
   width: 65px;

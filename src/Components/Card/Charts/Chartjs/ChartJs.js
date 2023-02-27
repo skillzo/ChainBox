@@ -11,7 +11,7 @@ export default function ChartJs() {
   const portfolioPrices = state.portfolio.map((coin) => {
     return coin.market_data.current_price.usd;
   });
-  console.log(portfolioPrices);
+
   const data = {
     datasets: [
       {

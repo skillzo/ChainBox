@@ -37,39 +37,28 @@ function Footer() {
         !showNavbar && styles["footer-scroll"]
       }`}
     >
-      <Link to="/">
-        <div className={styles.footer1}>
-          <HomeIcon sx={{ color: "#a2adb8", fontSize: 35 }} />
-          Home
-        </div>
+      <Link className={styles.footer1} to="/">
+        <HomeIcon sx={{ color: "#a2adb8", fontSize: 30 }} />
+        <div> Home</div>
       </Link>
-      <Link to="/search">
-        {" "}
-        <div className={styles.footer1}>
-          <SearchIcon sx={{ color: "#a2adb8", fontSize: 30 }} />
-          Search
-        </div>
+      <Link className={styles.footer1} to="/search">
+        <SearchIcon sx={{ color: "#a2adb8", fontSize: 30 }} />
+        <div> Search</div>
       </Link>
       <div className={styles["footer-news"]}>
-        <Link to="/news">
-          <div className={styles.footer1}>
-            <NewspaperIcon sx={{ color: "#fff" }} />
-            <p>News</p>
-          </div>
+        <Link className={styles.footer1} to="/news">
+          <NewspaperIcon sx={{ color: "#fff" }} />
+          <div>News</div>
         </Link>
       </div>
-      <Link to="/portfolio">
-        <div className={styles.footer1}>
-          <PieChartIcon sx={{ color: "#a2adb8", fontSize: 30 }} />
-          Portfolio
-        </div>
+      <Link className={styles.footer1} to="/portfolio">
+        <PieChartIcon sx={{ color: "#a2adb8", fontSize: 30 }} />
+        <div> Portfolio</div>
       </Link>
 
-      <Link to="/settings">
-        <div className={styles.footer1}>
-          <SettingsIcon sx={{ color: "#a2adb8", fontSize: 30 }} />
-          Settings
-        </div>
+      <Link className={styles.footer1} to="/settings">
+        <SettingsIcon sx={{ color: "#a2adb8", fontSize: 30 }} />
+        <div> Settings</div>
       </Link>
     </div>
   );

@@ -11,7 +11,6 @@ import ChartJS from "../Components/Card/Charts/Chartjs/ChartJs";
 
 function Portfolio() {
   const { state } = useAuth();
-  console.log(state.total);
   useEffect(() => {
     localStorage.setItem("portfolio", JSON.stringify(state.portfolio));
     localStorage.setItem("total", state.total);
@@ -23,7 +22,7 @@ function Portfolio() {
       <PortfolioFilter />
       <ChartJS />
       {state.portfolio?.map((coin) => {
-        console.log(coin);
+    
         return (
           <CoinCard2
             key={coin.id}

@@ -68,7 +68,6 @@ export default function CoinDescription({
     },
   ];
 
-  console.log(description?.split("  "));
   return (
     <div className={styles["coindescription-container"]}>
       <h2>About {name}</h2>
@@ -129,7 +128,7 @@ export const CoinLinks = ({ homeLink, tag, coinName }) => {
         {coinName} {tag}
       </h3>
       <div className={styles["description-section__link"]}>
-        <a href={homeLink}>{homeLink}</a>
+        <a href={homeLink}>{homeLink || 'Not Available'}</a>
       </div>
     </div>
   );

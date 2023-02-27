@@ -1,7 +1,7 @@
 import React from "react";
 import Profile from "../Components/Profile/Profile";
 import Footer from "../Components/Footer/Footer";
-import "../Pages/navigation.css";
+import "./navigation.css";
 import Navbar from "../Components/Navbar/Navbar";
 import { Outlet } from "react-router-dom";
 import Wrapper from "../Components/Wrapper/Wrapper";

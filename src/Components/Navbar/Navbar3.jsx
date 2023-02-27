@@ -10,7 +10,6 @@ function Navbar3({ currItem }) {
   const navigate = useNavigate();
 
   const watchListHandler = (e) => {
-    console.log(checked, "changed");
     setChecked(e.target.checked);
     if (checked) {
       dispatch({
