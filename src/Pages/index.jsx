@@ -39,9 +39,7 @@ function Home() {
       const coinData = data?.data;
       return coinData;
     },
-    onSuccess: () => {
-      setToken(coinData);
-    },
+
     retryOnMount: true,
     refetchOnWindowFocus: false
   });

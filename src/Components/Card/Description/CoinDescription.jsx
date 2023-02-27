@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./coindescription.module.css";
 import { v4 as uuidv4 } from "uuid";
+import { Parser } from 'html-to-react'
 
 export default function CoinDescription({
   name,
@@ -68,12 +69,14 @@ export default function CoinDescription({
     },
   ];
 
+
+  console.log(description)
   return (
     <div className={styles["coindescription-container"]}>
       <h2>About {name}</h2>
       <div className={styles["coindescription-description"]}>
         <p style={{ fontWeight: "700" }}>What is {name}?</p>
-        <p>{description}</p>
+        <div>{Parser().parse(description)}</div>
       </div>
 
       <div className={styles["description-link description-section"]}>
