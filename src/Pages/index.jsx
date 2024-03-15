@@ -42,8 +42,13 @@ function Home() {
     onSuccess: () => {
       setToken(coinData);
     },
+    staleTime: "Infinity",
+    cacheTime: "Infinity",
+    refetchInterval: false,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+    refetchIntervalInBackground: false,
   });
-  console.log("token in homepage", token);
 
   // loading and error state
   if (isLoading || isFetching)
@@ -52,8 +57,10 @@ function Home() {
         <Loading />
       </h2>
     );
+
   if (isError && !token)
     return <div className="error-page">{error && <ErrorPage />}</div>;
+
   return (
     <Fragment>
       <Filter token={token} setToken={setToken} />
