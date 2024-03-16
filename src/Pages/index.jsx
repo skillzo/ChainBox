@@ -6,13 +6,11 @@ import { SCoinCard } from "../Components/Card/Skeletons/SkeletonCard";
 import ErrorPage from "./Error/404";
 import { useQuery } from "react-query";
 import axios from "axios";
-import { ReactQueryDevtools } from "react-query/devtools";
 import Loading from "../Components/Loading/Loading";
 
 function Home() {
-  const [token, setToken] = useState([]);
   const url =
-    "https://coingecko.p.rapidapi.com/coins/markets?vs_currency=usd&page=1&per_page=250&order=market_cap_desc";
+    "https://coingecko.p.rapidapi.com/coins/markets?vs_currency=usd&page=1&per_page=100&order=market_cap_desc";
 
   const options = {
     method: "GET",
@@ -35,20 +33,14 @@ function Home() {
     error,
     isFetching,
   } = useQuery("tokens", fetcher, {
-    select: (data) => {
-      const coinData = data?.data;
-      return coinData;
-    },
-    onSuccess: () => {
-      setToken(coinData);
-    },
     staleTime: "Infinity",
     cacheTime: "Infinity",
-    refetchInterval: false,
     refetchOnMount: false,
+    refetchInterval: false,
     refetchOnWindowFocus: false,
     refetchIntervalInBackground: false,
   });
+  const token = coinData?.data;
 
   // loading and error state
   if (isLoading || isFetching)
@@ -63,7 +55,8 @@ function Home() {
 
   return (
     <Fragment>
-      <Filter token={token} setToken={setToken} />
+      <Filter />
+
       <Filter2
         rank="#"
         name="Name"
@@ -71,27 +64,59 @@ function Home() {
         change="Change"
         holdings="Holdings"
       />
+
       {/* top 100 mapped here */}
       {token &&
         token?.map((coin) => {
           return (
             <CoinCard
-              key={coin.id}
-              id={coin.id}
-              rank={coin.market_cap_rank}
-              icon={coin.image}
-              coinName={coin.symbol}
-              mkCap={coin.market_cap}
-              price={coin.current_price}
-              change={coin.market_cap_change_percentage_24h}
-              symbol={coin.symbol}
+              key={coin?.id}
+              id={coin?.id}
+              rank={coin?.market_cap_rank}
+              icon={coin?.image}
+              coinName={coin?.name}
+              mkCap={coin?.market_cap}
+              price={coin?.current_price}
+              change={coin?.market_cap_change_percentage_24h}
+              symbol={coin?.symbol}
               currItem={coin}
             />
           );
         })}
-      <ReactQueryDevtools initialIsOpen={true} position={"bottom-right"} />
     </Fragment>
   );
 }
 
 export default Home;
+
+const rr = [
+  {
+    id: "ether-fi-staked-eth",
+    symbol: "eeth",
+    name: "ether.fi Staked ETH",
+    image:
+      "https://assets.coingecko.com/coins/images/33049/large/ether.fi_eETH.png?1700473063",
+    current_price: 3669.92,
+    market_cap: 1432574823,
+    market_cap_rank: 82,
+    fully_diluted_valuation: 2900209385,
+    total_volume: 253259,
+    high_24h: 4028.37,
+    low_24h: 3536.34,
+    price_change_24h: -213.9750983614631,
+    price_change_percentage_24h: -5.50929,
+    market_cap_change_24h: 92409753,
+    market_cap_change_percentage_24h: 6.8954,
+    circulating_supply: 390737.02089038485,
+    total_supply: 791036.640119919,
+    max_supply: null,
+    ath: 4040.42,
+    ath_change_percentage: -9.11779,
+    ath_date: "2024-03-11T14:17:18.791Z",
+    atl: 2155.76,
+    atl_change_percentage: 70.33589,
+    atl_date: "2024-02-08T11:26:30.368Z",
+    roi: null,
+    last_updated: "2024-03-15T08:28:22.079Z",
+  },
+];

@@ -93,13 +93,10 @@ export const ContextProvider = ({ children }) => {
   const logOut = async () => {
     try {
       const res = await signOut(auth);
-      console.log("logout", res);
       localStorage.remove("chainBox-user");
       setCurrentUser({});
       navigate("/login");
-    } catch (err) {
-      console.log(err.message);
-    }
+    } catch (err) {}
   };
 
   const value = {
