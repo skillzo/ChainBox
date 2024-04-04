@@ -11,7 +11,9 @@ function News() {
   return (
     <Fragment>
       <div className="error-page">{error && <ErrorPage />}</div>
+
       <NewsHeader icon={newData[Math.round(Math.random() * 50)]?.image} />
+
       <div className="skeleton-loading">{loading && <SCoinCard />}</div>
       <div className="news-card__container">
         {newData &&

@@ -11,12 +11,9 @@ import {
   // SBasicCard,
   SCoinCard,
 } from "../Components/Card/Skeletons/SkeletonCard";
-
-// import { useAuth } from "../Store/Context/AuthContext";
+import { coins } from "../data/coins";
 
 function Search() {
-  // const { input } = useAuth();
-  // ///////////////////////////////////////////////
   const url =
     "https://coingecko.p.rapidapi.com/coins/markets?vs_currency=usd&page=1&per_page=100&order=market_cap_desc";
 
@@ -28,59 +25,33 @@ function Search() {
     },
   };
 
-  // const options2 = {
-  //   method: "GET",
-  //   headers: {
-  //     "X-RapidAPI-Key": "1b4a0c0127mshd14c854b5410d89p1cbec6jsn0264abe15bf4",
-  //     "X-RapidAPI-Host": "coingecko.p.rapidapi.com",
-  //   },
-  // };
-  // const url2 = `https://coingecko.p.rapidapi.com/exchanges/${input}`;
-
-  // const options3 = {
-  //   method: "GET",
-  //   headers: {
-  //     "X-RapidAPI-Key": "1b4a0c0127mshd14c854b5410d89p1cbec6jsn0264abe15bf4",
-  //     "X-RapidAPI-Host": "coingecko.p.rapidapi.com",
-  //   },
-  // };
-  // const url3 = `https://coingecko.p.rapidapi.com/coins/${input}?localization=true&tickers=true&market_data=true&community_data=true&developer_data=true&sparkline=false`;
-  // /////////////////////////////////
-
   const { data } = useFetch(url, options);
   const { newData, loading } = useFetch2();
-  // const { data: quaryExchangeData } = useFetch3(url2, options2);
-  // const { data: quaryCoinData } = useFetch3(url3, options3);
-  // /////////////////////////////
 
-  // const quaryExchangeNewData = quaryExchangeData?.filter((ex) => {
-  //   return ex.name.toLowerCase().includes(input.trim().toLowerCase());
-  // });
-  // const quaryCoinNewData = quaryCoinData?.filter((coin) => {
-  //   return coin.id.toLowerCase() === input.toLowerCase();
-  // });
   return (
     <Fragment>
       <Wrapper>
         <SearchBar />
-        <h3>Trending</h3>
+        <h3 className="font-semibold text-gray-800 my-5">Trending</h3>
         {/* {loading && <SBasicCard />} */}
         <div className="trending-container">
-          {data &&
-            data?.slice(0, 10).map((coin) => {
-              return (
-                <Trending
-                  key={coin.id}
-                  id={coin.id}
-                  icon={coin.image}
-                  coinName={coin.id}
-                  symbol={coin.symbol}
-                />
-              );
-            })}
+          {coins?.slice(0, 10).map((coin) => {
+            return (
+              <Trending
+                key={coin.id}
+                id={coin.id}
+                icon={coin.image}
+                coinName={coin.id}
+                symbol={coin.symbol}
+              />
+            );
+          })}
         </div>
-        <h3>News</h3>
+
+        <h3 className="font-semibold text-gray-800 my-10">News</h3>
+
         {loading && <SCoinCard />}
+
         {newData &&
           newData.map((news) => {
             return (

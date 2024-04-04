@@ -14,57 +14,56 @@ function StatCard({
   roi,
   currItem,
 }) {
+  const stats = [
+    {
+      name: "Market Cap",
+      value: `US ${(mkCap / 1000000000).toFixed(2)}Bn`,
+    },
+    {
+      name: "Volume 24h",
+      value: `US ${(mkCap / 1000000000).toFixed(2)}Bn`,
+    },
+    {
+      name: "Max Supply",
+      value: `${(mxSupply / 100000000).toFixed(2)}Bn ${symbol}`,
+    },
+    {
+      name: "All Time High",
+      value: ath,
+    },
+    {
+      name: "All Time Low",
+      value: atl,
+    },
+    {
+      name: "Full Diluted MkCap",
+      value: `US ${(fully_dil_mkCap / 1000000000).toFixed(2)}Bn`,
+    },
+    {
+      name: "Circulating Supply",
+      value: `${(circulating_supply / 1000000000).toFixed(2)} Bn`,
+    },
+    {
+      name: "Total Suppy",
+      value: `${(total_supply / 1000000000).toFixed(2)}Bn`,
+    },
+    {
+      name: "ROI",
+      value: `${roi}%`,
+    },
+  ];
+
   return (
-    <>
-      <div className="stat-container">
-        <div className="stat1">
-          <div className="stat-info">
-            <h4>Market Cap</h4>
-            <p>US ${(mkCap / 1000000000).toFixed(2)}Bn</p>
+    <div className="grid grid-cols-2 justify-between gap-x-10 gap-y-3 my-10">
+      {stats?.map((i, idx) => {
+        return (
+          <div key={idx}>
+            <p className="font-semibold">{i.name}</p>
+            <p className="text-gray-400 text-xs font-semibold">{i.value}</p>
           </div>
-          <div className="stat-info">
-            <h4>Volume 24h</h4>
-            <p>US ${(vol / 1000000000).toFixed(2)}Bn</p>
-          </div>
-          <div className="stat-info">
-            <h4>Max Supply</h4>
-            <p>
-              {(mxSupply / 100000000).toFixed(2)}Bn {symbol}
-            </p>
-          </div>
-          <div className="stat-info">
-            <h4>All Time High</h4>
-            <p>US ${ath}</p>
-          </div>
-          <div className="stat-info">
-            <h4>All Time Low</h4>
-            <p>US ${atl}</p>
-          </div>
-        </div>
-        <div className="stat2">
-          <div className="stat-info">
-            <h4>Full Diluted MkCap</h4>
-            <p>US ${(fully_dil_mkCap / 1000000000).toFixed(2)} Bn</p>
-          </div>
-          <div className="stat-info">
-            <h4>Circulating Supply</h4>
-            <p>{(circulating_supply / 1000000000).toFixed(2)} Bn</p>
-          </div>
-          <div className="stat-info">
-            <h4>Full Diluted MkCap</h4>
-            <p>US $367.506 Bn</p>
-          </div>
-          <div className="stat-info">
-            <h4>Total Suppy</h4>
-            <p>{(total_supply / 1000000000).toFixed(2)}Bn</p>
-          </div>
-          <div className="stat-info">
-            <h4>ROI</h4>
-            <p>{roi}%</p>
-          </div>
-        </div>
-      </div>
-    </>
+        );
+      })}
+    </div>
   );
 }
 
