@@ -9,19 +9,20 @@ import Wrapper from "../Components/Wrapper/Wrapper";
 function Home() {
   return (
     <>
-      <div className="container">
+      <div className="container ">
         <div className="navigation-header">
           <Profile />
           <Navbar />
         </div>
-        <div className="navigation-body">
+
+        <div className="navigation-body pb-[10em] ">
           <Wrapper>
             <Outlet />
           </Wrapper>
         </div>
         <Footer />
       </div>
-      {/* New comment */}
+
       <div className="on-desktop">
         This app is optimized for just mobile please view on a mobile device
       </div>

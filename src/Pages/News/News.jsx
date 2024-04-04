@@ -10,12 +10,15 @@ function News() {
   const { newData, loading, error } = useFetch2();
   return (
     <Fragment>
-      <div className="error-page">{error && <ErrorPage />}</div>
-      <NewsHeader icon={newData[Math.round(Math.random() * 50)]?.image} />
+      {error && <div className="error-page">{error && <ErrorPage />}</div>}
+      {newData && (
+        <NewsHeader icon={newData[Math.round(Math.random() * 50)]?.image} />
+      )}
+
       <div className="skeleton-loading">{loading && <SCoinCard />}</div>
-      <div className="news-card__container">
-        {newData &&
-          newData.map((news) => {
+      {newData && (
+        <div className="news-card__container">
+          {newData.map((news) => {
             return (
               <NewsCard
                 key={news.id}
@@ -27,7 +30,8 @@ function News() {
               />
             );
           })}
-      </div>
+        </div>
+      )}
     </Fragment>
   );
 }

@@ -3,6 +3,7 @@ import styles from "./filter.module.css";
 
 function Filter({ token, setToken }) {
   const [topCoin, setTopCoin] = useState(false);
+
   const top50 = () => {
     topCoin ? setToken(token?.slice(0, 100)) : setToken(token?.slice(0, 50));
   };
@@ -16,6 +17,7 @@ function Filter({ token, setToken }) {
             <option value="">USDT</option>
           </select>
         </div>
+
         <div className={styles["price-in"]}>
           <select name="" id="">
             <option value="">1hr%</option>

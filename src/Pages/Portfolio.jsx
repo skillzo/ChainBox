@@ -10,19 +10,19 @@ import { Link } from "react-router-dom";
 import ChartJS from "../Components/Card/Charts/Chartjs/ChartJs";
 
 function Portfolio() {
-  const { state } = useAuth();
+  const { state, currentUser } = useAuth();
+
   useEffect(() => {
     localStorage.setItem("portfolio", JSON.stringify(state.portfolio));
     localStorage.setItem("total", state.total);
   }, [state.portfolio, state.total]);
   return (
     <>
-      <Navbar2 pageName=" Skillzo's Portfolio" />
+      <Navbar2 pageName={`${currentUser?.displayName} Portfolio`} />
       <PortFolioHeader />
       <PortfolioFilter />
-      <ChartJS />
+      {/* <ChartJS /> */}
       {state.portfolio?.map((coin) => {
-    
         return (
           <CoinCard2
             key={coin.id}
@@ -36,11 +36,18 @@ function Portfolio() {
           />
         );
       })}
-      <Link to="/">
+
+      <img
+        alt="coming soon"
+        src="https://png.pngtree.com/png-clipart/20211017/original/pngtree-megaphone-badge-coming-soon-png-image_6858874.png"
+        className="w-full  object-contain bg-transparent"
+      />
+
+      {/* <Link to="/">
         <Button bgColor="#487bfb" btnColor="#f4f5f6">
           Add New Asset
         </Button>
-      </Link>
+      </Link> */}
       <Footer />
     </>
   );

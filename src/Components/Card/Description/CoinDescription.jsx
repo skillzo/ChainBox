@@ -16,6 +16,9 @@ export default function CoinDescription({
   telegram_stat,
   github_stat,
   blockchain_Explorer,
+  forks,
+  total_issues,
+  closed_isses,
 }) {
   const links = [
     {
@@ -65,6 +68,18 @@ export default function CoinDescription({
     {
       tag: "Github Subscribers",
       info: github_stat,
+    },
+    {
+      tag: "Git Forks",
+      info: forks,
+    },
+    {
+      tag: "Total Issues",
+      info: total_issues,
+    },
+    {
+      tag: "Closed Issues",
+      info: closed_isses,
     },
   ];
 

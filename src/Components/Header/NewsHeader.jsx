@@ -11,7 +11,7 @@ function NewsHeader({ icon }) {
   return (
     <>
       <div className={styles["news-header__container"]}>
-        <div className={styles["news-greeting"]}>
+        <div className="fc !text-lg font-bold gap-2">
           {time < 11 ? (
             <h1>Good Morning</h1>
           ) : time >= 11 && time <= 16 ? (
@@ -21,19 +21,21 @@ function NewsHeader({ icon }) {
           ) : (
             <h1>Good Morning</h1>
           )}
-          <p> {currentUser?.displayName || "Skillzo"}</p>
+          <p className="text-brand-blue font-semibold">
+            {" "}
+            {currentUser?.displayName || "Skillzo"}
+          </p>
         </div>
-        <div className={styles["greetings-text"]}>
-          <p>Explore The World With A Single Click </p>
-        </div>
+
+        <p className="my-1 text-gray-500 ">
+          Explore The World With A Single Click{" "}
+        </p>
 
         <div className={styles["header-news__image"]}>
           {loading ? <ImageSkeleton /> : <img src={icon} alt="" />}
         </div>
 
-        <div>
-          <h2>Trending</h2>
-        </div>
+        <h2 className="my-5 text-lg font-semibold">Trending</h2>
       </div>
     </>
   );

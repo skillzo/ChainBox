@@ -7,7 +7,7 @@ export default function Login() {
   const { logInWithGoogle, loginError } = useAuth();
   return (
     <>
-      <div className={styles["login-container"]} onClick={logInWithGoogle}>
+      <div className={styles["login-container"]}>
         <div className={styles["profile-logo"]}>
           <p>
             Chain
@@ -23,12 +23,20 @@ export default function Login() {
             alt=""
           />
         </div>
+
         <h3>Sign In with Google</h3>
-        <button type="button" className={styles["login-with-google-btn"]}>
+
+        <button
+          type="button"
+          className={styles["login-with-google-btn"]}
+          onClick={() => logInWithGoogle()}
+        >
           Sign in with Google
         </button>
+
         {loginError && <p className={styles.loginError}>{loginError}</p>}
       </div>
+
       <div className={styles["on-desktop"]}>
         This app is optimized for just mobile please view on a mobile device
       </div>

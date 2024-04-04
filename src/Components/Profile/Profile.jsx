@@ -9,7 +9,7 @@ function Profile() {
   const { currentUser } = useAuth();
 
   return (
-    <div className="profile-container">
+    <div className="profile-container !py-3">
       <Link to="/profile" className="profile-name">
         <img
           src={

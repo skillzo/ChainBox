@@ -15,7 +15,9 @@ function CoinHeader({ coinName, price, changePercent, changeCur }) {
     <div className={styles["coinheader-container"]}>
       <div className={styles["coinheader-main"]}>
         <div className={styles["coinheader-name"]}>{coinName}</div>
-        <div className={styles["coinheader-price"]}>US ${price}</div>
+        <div className={styles["coinheader-price"]}>
+          US ${price?.toLocaleString()}
+        </div>
 
         {/* change in dollers */}
         <div className={styles["CoinHeader_change"]}>
