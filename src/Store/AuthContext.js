@@ -66,42 +66,40 @@ const reducer = (initialState, { type, payload }) => {
   }
 };
 
+const initUser = JSON.parse(localStorage.getItem("chainBox-user")) || {};
+
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [input, setInput] = useState("binance");
   const [checked, setChecked] = useState(false);
-  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
-  const [currentUser, setCurrentUser] = useState("");
+  const [currentUser, setCurrentUser] = useState(initUser);
   const [loginError, setLoginError] = useState("");
   const navigate = useNavigate();
 
   // firebase functions
-  const logInWithGoogle = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        setIsAuth(true);
-        navigate("/");
-        const user = result?.user;
-        setCurrentUser(user);
-        localStorage.setItem("isAuth", true);
-      })
-      .catch((e) => {
-        setLoginError(e.message);
-        setCurrentUser("");
-      });
+  const logInWithGoogle = async () => {
+    try {
+      const res = await signInWithPopup(auth, provider);
+      const user = res?.user;
+      localStorage.setItem("chainBox-user", JSON.stringify(user));
+      setCurrentUser(user);
+      navigate("/");
+    } catch (err) {
+      setLoginError(err.message);
+      setCurrentUser({});
+    }
   };
-  const logOut = () => {
-    signOut(auth)
-      .then(() => {
-        setIsAuth(false);
-        localStorage.setItem("isAuth", false);
-        navigate("/login");
-      })
-      .catch((e) => {
-        console.log("couldnt sign out");
-        console.log(e.message);
-      });
-    localStorage.clear();
+
+  const logOut = async () => {
+    try {
+      const res = await signOut(auth);
+      console.log("logout fn", res);
+      localStorage.removeItem("chainBox-user");
+      setCurrentUser({});
+      navigate("/login");
+    } catch (err) {
+      console.log("logout error", err);
+    }
   };
 
   const value = {
@@ -109,8 +107,6 @@ export const ContextProvider = ({ children }) => {
     dispatch,
     input,
     setInput,
-    isAuth,
-    setIsAuth,
     currentUser,
     setCurrentUser,
     logInWithGoogle,
