@@ -9,7 +9,7 @@ function PortFolioHeader() {
       <div className={styles["portfolio-header__container"]}>
         <div className={styles["portfolio-header__amount"]}>
           <p>Current Balance</p>
-          <h1>US${state.total?.toFixed(2) || 0}</h1>
+          <h1 className="my-3">US${state.total?.toFixed(2) || 0}</h1>
           <div className={styles["portfolio-header__amountChange"]}>
             +US$39,400.70(24h)
           </div>

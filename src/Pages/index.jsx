@@ -1,19 +1,15 @@
-import React, { Fragment, useState } from "react";
-import Filter from "../Components/Filter/Filter";
-import CoinCard from "../Components/Card/Coin/CoinCard";
-import Filter2 from "../Components/Filter/Filter2";
-import { SCoinCard } from "../Components/Card/Skeletons/SkeletonCard";
-import ErrorPage from "./Error/404";
+import React, { useState } from "react";
+
 import { useQuery } from "react-query";
 import axios from "axios";
-import Loading from "../Components/Loading/Loading";
+
 import { coins } from "../data/coins";
 import { Dropdown, Table } from "antd";
 import { useDebounce } from "../Hooks/useDebounce";
 import SearchInput from "../Components/Input/SearchInput";
-import styles from "../Components/Card/Coin/coincard.module.css";
+
 import { FaLongArrowAltUp, FaLongArrowAltDown } from "react-icons/fa";
-import { RxCaretDown, RxCaretUp } from "react-icons/rx";
+
 import { useNavigate } from "react-router-dom";
 import { coingeckoBaseUrl } from "../utils/variables";
 
@@ -116,7 +112,7 @@ function Home() {
 
   // api call for the token
   const debounced_value = useDebounce(searchQuery, 1500);
-  const { isLoading, error } = useQuery(
+  const { isLoading } = useQuery(
     ["tokens", debounced_value, filterOption],
     async () => {
       return axios.get(`${coingeckoBaseUrl}/coins/markets`, {
@@ -135,7 +131,7 @@ function Home() {
       });
     },
     {
-      onError: () => {
+      onError: (error) => {
         setAllCoins(coins);
       },
       onSuccess: (data) => {
@@ -143,8 +139,6 @@ function Home() {
       },
     }
   );
-
-  if (error) return <div className="error-page">{error && <ErrorPage />}</div>;
 
   return (
     <div className="py-4">
